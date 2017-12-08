@@ -1,7 +1,7 @@
 ---
 title: Baseline Model
 notebook: Recommendations_Baseline.ipynb
-nav_include: 2
+nav_include: 3
 ---
 
 ## Contents
@@ -20,7 +20,13 @@ Here, we define our baseline using a simple multiple linear regression of averag
 
 $$\hat{Y_{um}} = \hat{\mu} + \hat{\theta}_{u} + \hat{\gamma}_{m}$$
 
-Where $\hat{\theta}_{u}$ is the average rating for user $u$, $\hat{\gamma}_{m}$ is the average rating for restaurant $m$, and $\hat{\mu}$ is the intercept.
+Where
+$\hat{\theta}_{u}$
+is the average rating for user $u$,
+$\hat{\gamma}_{m}$
+is the average rating for restaurant $m$, and
+$\hat{\mu}$
+is the intercept.
 
 
 In our analysis, we will run this baseline model on ratings from Ohio, as it provides an inbetween representation of larger markets and smaller markets, and only with users that have at least 150 reviews in the review data sest provided by Yelp, as discussed on the EDA page.
