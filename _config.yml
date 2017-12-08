@@ -1,5 +1,5 @@
-theme: jekyll-theme-architect
-title: Yelp Recommendations in OH
+theme: jekyll-theme-primer
+title: 2017 APCOMP 209A, Group 48
 description: 2017 APCOMP 209A Group 48's Recommendations Project
 baseurl:
 markdown: kramdown
