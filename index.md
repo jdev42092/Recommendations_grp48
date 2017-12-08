@@ -35,19 +35,27 @@ For more on our EDA, please visit the Exploratory Data Analysis page.
 
 We were aided in our analysis of the Yelp data by an analysis of *Collaborative Filtering for Implicit Feedback Datasets*.<sup>1</sup> [ANTHONY WILL TALK ABOUT PAPER HE USED]
 
-We were also aided in understanding the Matrix Factorization model through a paper on *Matrix Factorization Techniques for Recommender Systems*.[^2]
+We were also aided in understanding the Matrix Factorization model through a paper on *Matrix Factorization Techniques for Recommender Systems*.<sup>2</sup>
 
-Finally, we were aided in creating the Pearson's R distance-based analysis from a published notebook from when this course was taught in 2014.[^3]
+Finally, we were aided in creating the Pearson's R distance-based analysis by a published homework notebook from when this course was taught in 2013.<sup>3</sup>
 
 ## Modeling Approach and Project Trajectory
 
 You can learn more about our modeling approach as you visit separate pages on our website, which correspond to each model that was run. It is worth noting, however, that our project evolved along with the ability of our laptops to run these data sets through each model. While we started with a data set conceived at the end of the EDA process (that is, one that combined the eight largest states and included all users and businesses), and split across train and test at about a 75-25 rate, this proved impossible to run on our computers through the Regularization Regression, Matrix Factorization, and k-NN distance models. We began trying data sets within each market, and then data sets which cut out users with less than 5 reviews, less than 10 reviews, less than 100 reviews, and so on. Finally, we found our sweet spot to be a mid-sized market (Ohio) with users with at least 150 reviews in the reviews data set.
 
+## Results, Conclusions, and Future Work
+
+As a result of our analysis, we have found that it is really difficult to improve on baseline results. As shown in the regularization and distance-based procedures, the baseline model with average user ratings and average business ratings did as well or slightly better.
+
+A shortcoming of our analysis is the difficulty of comparing results due to the different size constraints and specifications of our data sets. For instance, we were pushed to use global data on the matrix factorization model as it was guaranteed to have all users and restaurants in both train and test data sets (while Ohio had some discrepancies between restaurants in train and test).
+
+If given more time, we would try to incorporate more of the data published by Yelp. We initially were interested in whether market-specific recommendation models were more accurate than global recommendation models, but we were not able to compare them due to processing and time constraints. We would hope to do so with greater computing power and time in the future.  
+
 
 
 ## References
-[^1] Hu, Y., Y. Koren, and C. Volinsky. "Collaborative Filtering for Implicit Feedback Datasets." Accessed from http://yifanhu.net/PUB/cf.pdf.
+<sup>1</sup> Hu, Y., Y. Koren, and C. Volinsky. "Collaborative Filtering for Implicit Feedback Datasets." Accessed from http://yifanhu.net/PUB/cf.pdf.
 
-[^2] Koren, Y., R. Bell, and C. Volinsky. "Matrix Factorization Techniques for Recommender Systems." Accessed from https://datajobs.com/data-science-repo/Recommender-Systems-%5BNetflix%5D.pdf.
+<sup>2</sup> Koren, Y., R. Bell, and C. Volinsky. "Matrix Factorization Techniques for Recommender Systems." Accessed from https://datajobs.com/data-science-repo/Recommender-Systems-%5BNetflix%5D.pdf.
 
-[^3] Blitzstein, J., H. Pfister, V. Kaynig-Fittkau, and R. Dave. "HW4: Do we really need Chocolate Recommendations?" Accessed from http://nbviewer.jupyter.org/github/cs109/content/blob/master/HW4_solutions.ipynb.
+<sup>3</sup> Blitzstein, J., H. Pfister, V. Kaynig-Fittkau, and R. Dave. "HW4: Do we really need Chocolate Recommendations?" Accessed from http://nbviewer.jupyter.org/github/cs109/content/blob/master/HW4_solutions.ipynb.
