@@ -1,0 +1,9 @@
+theme: jekyll-theme-architect
+title: Yelp Recommendations in OH
+description: 2017 APCOMP 209A Group 48's Recommendations Project
+baseurl:
+markdown: kramdown
+kramdown:
+    math_engine: mathjax
+    input: GFM
+    syntax_highlighter: rouge
