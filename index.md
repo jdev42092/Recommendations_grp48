@@ -28,7 +28,8 @@ As the Yelp business data set included records beyond the intended scope of our 
 
 Within our initial analysis, we looked at the number of check-ins, photos, and tips at each establishment, as well as the number of tips provided by each user, but found that these data were missing for a majority of businesses and users, so we have opted not to ultimately use them.
 
-From our EDA, we came to realize the primary challenge of working with this data: its size. Running most of these procedures on the full data set after merging reviews, users, and businesses seemed unruly, so we decided to cut the data set down. We processed and filtered the data set using Hadoop and Scalding Map Reduce. [ANTHONY WILL FILL IN DETAILS]
+From our EDA, we came to realize the primary challenge of working with this data: its size. Running most of these procedures on the full data set after merging reviews, users, and businesses seemed unruly, so we decided to cut the data set down. We processed and filtered the data set using Scalding running on Hadoop, a MapReduce framework. The data was initially filtered to remove superfluous columns and create summaries of data such as tips & photos which, while unlikely to be used in the models, could help with initial EDA.
+After performing EDA, we then selected a very specific subset of columns from users, businesses, and ratings. These were joined together to create a base dataset to work from. Later datasets were formed by filtering only to users and restaurants which met certain criteria, specifically minimum number of reviews by/for each user/restaurant and location of the restaurant. The latter criterion was used to create datasets for each state in the master data set.
 
 After trying a few different data sets, we decided to use the Ohio data for users with at least 150 reviews (except for our matrix factorization model, which uses the national data set for 150 reviews), as it was presented a sufficient number of users and businesses to run our models.
 
@@ -36,7 +37,7 @@ For more on our EDA, please visit the Exploratory Data Analysis page.
 
 ## Related Work
 
-We were aided in our analysis of the Yelp data by an analysis of *Collaborative Filtering for Implicit Feedback Datasets*.<sup>1</sup> [ANTHONY WILL TALK ABOUT PAPER HE USED]
+We were aided in our analysis of the Yelp data by an analysis of *Collaborative Filtering for Implicit Feedback Datasets*.<sup>1</sup>. Because the data set was too large, this paper provided an algorithm for decomposing the updates for individual users/restaurants which was useful when dealing with a sparse representation. See the Matrix Factorization notebook for futher details.
 
 We were also aided in understanding the Matrix Factorization model through a paper on *Matrix Factorization Techniques for Recommender Systems*.<sup>2</sup>
 
@@ -44,13 +45,13 @@ Finally, we were aided in creating the Pearson's R distance-based analysis by a 
 
 ## Modeling Approach and Project Trajectory
 
-You can learn more about our modeling approach as you visit separate pages on our website, which correspond to each model that was run. It is worth noting, however, that our project evolved along with the ability of our laptops to run these data sets through each model. While we started with a data set conceived at the end of the EDA process (that is, one that combined the eight largest states and included all users and businesses), and split across train and test at about a 75-25 rate, this proved impossible to run on our computers through the Regularization Regression, Matrix Factorization, and k-NN distance models. We began trying data sets within each market, and then data sets which cut out users with less than 5 reviews, less than 10 reviews, less than 100 reviews, and so on. Finally, we found our sweet spot to be a mid-sized market (Ohio) with users with at least 150 reviews in the reviews data set.
+You can learn more about our modeling approach as you visit separate pages on our website, which correspond to each model that was run. It is worth noting, however, that our project evolved along with the ability of our laptops to run these data sets through each model. While we started with a data set conceived at the end of the EDA process (that is, one that combined the eight largest states and included all users and businesses), and split across train and test at about a 75-25 rate, this proved impossible to run on our computers through the Regularization Regression, Matrix Factorization, and k-NN distance models. We began trying data sets within each market, and then data sets which cut out users with fewer than 5 reviews, fewer than 10 reviews, fewer than 100 reviews, and so on. Finally, we found our sweet spot to be a mid-sized market (Ohio) with users with at least 150 reviews in the reviews data set.
 
 ## Results, Conclusions, and Future Work
 
 As a result of our analysis, we have found that it is really difficult to improve on baseline results. As shown in the regularization, matrix factorization, and distance-based procedure pages, the baseline model with average user ratings and average business ratings did as well or slightly better than everything else we tried. Please see those pages for further illustration and explanation.
 
-A shortcoming of our analysis is the difficulty of comparing results due to the different size constraints and specifications of our data sets. For instance, we were pushed to use global data on the matrix factorization model as it was guaranteed to have all users and restaurants in both train and test data sets (while Ohio had some discrepancies between restaurants in train and test).
+A shortcoming of our analysis is the difficulty of comparing results due to the different size constraints and specifications of our data sets. For instance, we were pushed to use global data on the matrix factorization model as it was guaranteed to have all users and restaurants in both train and test data sets (while Ohio had some discrepancies between restaurants in train and test). Ultimately the matrix factorization model used only Ohio data but the impact of increasing the number of dimensions or iterations was sharply limited by the amount of data available.
 
 If given more time, we would try to incorporate more of the data published by Yelp. We initially were interested in whether market-specific recommendation models were more accurate than global recommendation models, but we were not able to compare them due to processing and time constraints. We would hope to do so with greater computing power and time in the future.  
 
