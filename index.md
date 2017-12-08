@@ -3,7 +3,9 @@ title: Yelp Recommendations in OH!
 ---
 ## By Maia Woluchem, Anthony Sciola, and Jay Dev
 
-![alt text](https://github.com/jdev42092/Recommendations_grp48/blob/master/Cleveland_not_Detroit.png "From 'Hastily Made Cleveland Tourism Video: 2nd Attempt'.")
+<img src="Cleveland_not_Detroit.png" class="img-responsive" alt="From 'Hastily Made Cleveland Tourism Video: 2nd Attempt.'"> </div>
+
+![alt text](https://github.com/jdev42092/Recommendations_grp48/blob/master/Cleveland_not_Detroit.png "From 'Hastily Made Cleveland Tourism Video: 2nd Attempt.'")
 
 
 ## Problem Statement and Motivation
