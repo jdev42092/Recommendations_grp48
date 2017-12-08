@@ -1,5 +1,5 @@
 ---
-title: Regularization Regression
+title: Regularization Regressions
 notebook: Recommendations_Regularization.ipynb
 nav_include: 3
 ---
@@ -13,8 +13,8 @@ nav_include: 3
 
 
 
-    /anaconda/lib/python3.6/site-packages/statsmodels/compat/pandas.py:56: FutureWarning: The pandas.core.datetools module is deprecated and will be removed in a future version. Please use the pandas.tseries module instead.
-      from pandas.core import datetools
+
+
 
 
 
@@ -245,40 +245,6 @@ train_dummies.head()
 
 
 ```python
-## Create matrices with only common users and businesses in them
-train_cols = list(train_dummies.columns)
-test_cols = list(test_dummies.columns)
-all_cols = [x for x in train_cols if x in test_cols]
-all_cols
-
-train = train_dummies[all_cols]
-test =test_dummies[all_cols]
-print(train.shape)
-print(test.shape)
-```
-
-
-    (3925, 530)
-    (942, 530)
-
-
-
-
-```python
-
-```
-
-
-
-
-
-    507
-
-
-
-
-
-```python
 ## Create matrices with all users and all businesses in them, fill NaNs with 0s
 train_cols = pd.DataFrame(columns = train_dummies.columns)
 test_cols = pd.DataFrame(columns = test_dummies.columns)
@@ -317,22 +283,20 @@ y_test_all = test['review_score']
 baseline_all = LinearRegression(fit_intercept=True)
 baseline_all.fit(X_train_all, y_train_all)
 
-#print('Baseline Intercept:', baseline_all.intercept_)
-#print('Baseline Coefficients:', baseline_all.coef_)
-print('Baseline Train Score:', baseline_all.score(X_train_all, y_train_all))
-print('Baseline Test Score:', baseline_all.score(X_test_all, y_test_all))
-print(sqrt(mean_squared_error(y_train_all, baseline_all.predict(X_train_all))))
-print(sqrt(mean_squared_error(y_test_all, baseline_all.predict(X_test_all))))
+print('Linear Regression Train Score:', baseline_all.score(X_train_all, y_train_all))
+print('Linear Regression Score:', baseline_all.score(X_test_all, y_test_all))
+print('Linear Regression Train RMSE:', sqrt(mean_squared_error(y_train_all, baseline_all.predict(X_train_all))))
+print('Linear Regression Test RMSE:',sqrt(mean_squared_error(y_test_all, baseline_all.predict(X_test_all))))
 ```
 
 
-    Baseline Train Score: 0.245120246601
-    Baseline Test Score: -0.0631406527031
-    0.8339818809755475
-    1.0197984062853958
+    Linear Regression Train Score: 0.568596188694
+    Linear Regression Score: -7.99233209172e+26
+    Linear Regression Train RMSE: 0.6304631614809212
+    Linear Regression Test RMSE: 27961194912001.582
 
 
-We see here that, because of all of the added factors for all users and all restaurants, this model is significantly overfitting to the training set. Our next set is regularization to correct for this overfitting>
+We see here that, because of all of the added factors for all users and all restaurants, this model is significantly overfitting to the training set. Our next set is regularization to correct for this overfitting.
 
 
 
@@ -341,13 +305,12 @@ lambdas = [.001,.005,1,5,10,50,100,500,1000]
 
 clf = RidgeCV(cv = 5, alphas=lambdas, fit_intercept=True)
 clf.fit(X_train_all, y_train_all)
-si= np.argsort(np.abs(clf.coef_))
 
 print("----")
 print('Ridge Train Score', clf.score(X_train_all, y_train_all))
 print('Ridge Test Score', clf.score(X_test_all, y_test_all))
-print(sqrt(mean_squared_error(y_train_all, clf.predict(X_train_all))))
-print(sqrt(mean_squared_error(y_test_all, clf.predict(X_test_all))))
+print('Ridge Train RMSE:', sqrt(mean_squared_error(y_train_all, clf.predict(X_train_all))))
+print('Ridge Test RMSE:', sqrt(mean_squared_error(y_test_all, clf.predict(X_test_all))))
 
 clfl = LassoCV(cv = 5, alphas=lambdas, fit_intercept=True)
 clfl.fit(X_train_all, y_train_all)
@@ -355,21 +318,21 @@ clfl.fit(X_train_all, y_train_all)
 print("----")
 print('Lasso Train Score', clfl.score(X_train_all, y_train_all))
 print('Lasso Test Score', clfl.score(X_test_all, y_test_all))
-print(sqrt(mean_squared_error(y_train_all, clfl.predict(X_train_all))))
-print(sqrt(mean_squared_error(y_test_all, clfl.predict(X_test_all))))
+print('Lasso Train RMSE:', sqrt(mean_squared_error(y_train_all, clfl.predict(X_train_all))))
+print('Lasso Test RMSE:', sqrt(mean_squared_error(y_test_all, clfl.predict(X_test_all))))
 ```
 
 
     ----
-    Ridge Train Score 0.174564329138
-    Ridge Test Score 0.0974114203465
-    0.8720860570539439
-    0.9396451650177554
+    Ridge Train Score 0.316232352454
+    Ridge Test Score 0.0995977594321
+    Ridge Train RMSE: 0.7937285478990413
+    Ridge Test RMSE: 0.9385064244062807
     ----
-    Lasso Train Score 0.094308804733
-    Lasso Test Score 0.0523688975209
-    0.9134984178347326
-    0.9628056264554311
+    Lasso Train Score 0.104427996576
+    Lasso Test Score 0.0524151551981
+    Lasso Train RMSE: 0.9083808726779814
+    Lasso Test RMSE: 0.9627821269653825
 
 
-As we see, Ridge does much better than Lasso. This is because we do not want to zero out features, as is done in Lasso, we simply want to penalize the magnitudes of each coefficient. This method still turns out not to do as well as the baseline model.
+As we see, Ridge does much better than Lasso. This is because we do not want to zero out features, as is done in Lasso, we simply want to penalize the magnitudes of each coefficient. This method still turns out not to do quite as well as the baseline model from the previous section, but the RMSE between that model and Ridge are comparable.
