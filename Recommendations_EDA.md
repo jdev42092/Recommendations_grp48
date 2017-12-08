@@ -1,5 +1,5 @@
 ---
-title: by average star rating
+title: Exploratory Data Analysis
 notebook: Recommendations_EDA.ipynb
 nav_include: 1
 ---
