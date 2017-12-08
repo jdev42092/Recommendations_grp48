@@ -6,7 +6,6 @@ title: Yelp Recommendations in OH!
 ## Introduction
 
 > Jay: Have you ever been to Ohio?
-
  
 > Anthony: I have, but I don't recommend it.
 
