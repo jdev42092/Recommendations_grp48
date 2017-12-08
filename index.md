@@ -6,7 +6,8 @@ title: Yelp Recommendations in OH!
 ## Introduction
 
 > Jay: Have you ever been to Ohio?
-Anthony: I have, but I don't recommend it.
+
+> Anthony: I have, but I don't recommend it.
 
 In this project, we are attempting to do the unwise: make recommendations in favor of Ohio. Using data from reviews in Ohio, available through Yelp's 12th Data Set Challenge data, we have created several recommendation models using linear regression, regularized regression, matrix factorization, and k-nearest neighbors and Pearson's R distance.
 
