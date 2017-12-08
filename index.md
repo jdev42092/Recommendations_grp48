@@ -3,6 +3,9 @@ title: Yelp Recommendations in OH!
 ---
 ## By Maia Woluchem, Anthony Sciola, and Jay Dev
 
+![alt text](https://github.com/jdev42092/Recommendations_grp48/blob/master/Cleveland_not_Detroit.png "From 'Hastily Made Cleveland Tourism Video: 2nd Attempt'.")
+
+
 ## Problem Statement and Motivation
 
 We've heard that building a recommendation system is difficult, so we wanted to give it a try. We are interested in the predictive power of 4 different models in recommending restaurants in Ohio.
