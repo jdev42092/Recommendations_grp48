@@ -33,7 +33,7 @@ For more on our EDA, please visit the Exploratory Data Analysis page.
 
 ## Related Work
 
-We were aided in our analysis of the Yelp data by an analysis of *Collaborative Filtering for Implicit Feedback Datasets*.[^1] [ANTHONY WILL TALK ABOUT PAPER HE USED]
+We were aided in our analysis of the Yelp data by an analysis of *Collaborative Filtering for Implicit Feedback Datasets*.<sup>1</sup> [ANTHONY WILL TALK ABOUT PAPER HE USED]
 
 We were also aided in understanding the Matrix Factorization model through a paper on *Matrix Factorization Techniques for Recommender Systems*.[^2]
 
@@ -41,7 +41,9 @@ Finally, we were aided in creating the Pearson's R distance-based analysis from 
 
 ## Modeling Approach and Project Trajectory
 
-You can learn more about our modeling approach as you visit separate pages on our website, which correspond to each model that was run. It is worth noting, however, that our project evolved along with the ability of our laptops to run these data sets through each model. While we started with a data set conceived at the end of the EDA process (that is, one that combined the eight largest states and included all users and businesses), and split across train and test at about a 75-25 rate, this proved impossible to run on our computers through the Regularization Regression, Matrix Factorization, and k-NN distance models. We began trying data sets within each market, and then data sets which cut out users with less than 5 reviews, less than 10 reviews, less than 100 reviews, and so on. Finally, we found our sweet spot to be a mid-sized market (Ohio) with users with at least 150 reviews in the reviews data set. 
+You can learn more about our modeling approach as you visit separate pages on our website, which correspond to each model that was run. It is worth noting, however, that our project evolved along with the ability of our laptops to run these data sets through each model. While we started with a data set conceived at the end of the EDA process (that is, one that combined the eight largest states and included all users and businesses), and split across train and test at about a 75-25 rate, this proved impossible to run on our computers through the Regularization Regression, Matrix Factorization, and k-NN distance models. We began trying data sets within each market, and then data sets which cut out users with less than 5 reviews, less than 10 reviews, less than 100 reviews, and so on. Finally, we found our sweet spot to be a mid-sized market (Ohio) with users with at least 150 reviews in the reviews data set.
+
+
 
 ## References
 [^1] Hu, Y., Y. Koren, and C. Volinsky. "Collaborative Filtering for Implicit Feedback Datasets." Accessed from http://yifanhu.net/PUB/cf.pdf.
