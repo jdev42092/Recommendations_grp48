@@ -1,7 +1,7 @@
 ---
 title: Yelp Recommendations in OH!
 ---
-## By Maia Woluchem, Anthony Sciola, and Jay Dev
+## By Anthony Sciola, Jay Dev, and Maia Woluchem
 
 <img src="Cleveland_not_Detroit.png" class="img-responsive" alt="From 'Hastily Made Cleveland Tourism Video: 2nd Attempt.'">
 
