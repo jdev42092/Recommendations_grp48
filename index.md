@@ -48,7 +48,7 @@ You can learn more about our modeling approach as you visit separate pages on ou
 
 ## Results, Conclusions, and Future Work
 
-As a result of our analysis, we have found that it is really difficult to improve on baseline results. As shown in the regularization and distance-based procedures, the baseline model with average user ratings and average business ratings did as well or slightly better.
+As a result of our analysis, we have found that it is really difficult to improve on baseline results. As shown in the regularization, matrix factorization, and distance-based procedure pages, the baseline model with average user ratings and average business ratings did as well or slightly better than everything else we tried. Please see those pages for further illustration and explanation.
 
 A shortcoming of our analysis is the difficulty of comparing results due to the different size constraints and specifications of our data sets. For instance, we were pushed to use global data on the matrix factorization model as it was guaranteed to have all users and restaurants in both train and test data sets (while Ohio had some discrepancies between restaurants in train and test).
 
